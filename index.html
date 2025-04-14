@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨 정보</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="container">
+        <div class="weather-app">
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="도시 이름을 입력하세요">
+                <button onclick="getWeather()"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="weather-info">
+                <div class="location">
+                    <h2 id="location">--</h2>
+                    <p id="date">--</p>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="temperature">
+                        <span id="temperature">--</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="weather-icon" id="weatherEmoji">🌤️</div>
+                </div>
+                
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <div>
+                            <span>습도</span>
+                            <span id="humidity">--%</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <div>
+                            <span>바람</span>
+                            <span id="wind">-- km/h</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-cloud"></i>
+                        <div>
+                            <span>구름</span>
+                            <span id="clouds">--%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weather-description">
+                    <p id="description">날씨 정보를 검색해주세요</p>
+                </div>
+            </div>
+
+            <div id="map" class="map-container"></div>
+
+            <div class="weather-history">
+                <h3>최근 날씨 기록</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>시간</th>
+                            <th>온도</th>
+                            <th>날씨</th>
+                            <th>습도</th>
+                        </tr>
+                    </thead>
+                    <tbody id="weatherHistory">
+                        <!-- JavaScript로 채워질 예정 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
